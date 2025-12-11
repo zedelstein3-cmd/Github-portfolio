@@ -323,17 +323,17 @@ button:focus-visible {
   gap: 0.75rem;
 }
 
+
 .hero-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 999px;
-  border: 2px solid var(--border-soft);
-  background: linear-gradient(135deg, #e5e7eb, #f9fafb);
-  box-shadow: var(--shadow-soft);
-  /* OPTIONAL: Set a real photo as background-image */
-  /* background-image: url("../assets/images/headshot.jpg");
-     background-size: cover;
-     background-position: center; */
+  width: 320px;
+  height: 320px;
+  object-fit: cover;           /* crops the image nicely */
+  
+  border-radius: 16px;         /* modern square look */
+  border: 3px solid white;     /* clean frame */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); /* cool depth */
+
+  background: none;            /* removes fake gradient background */
 }
 
 .hero-tags {
