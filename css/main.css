@@ -187,6 +187,13 @@ button:focus-visible {
   margin-right: 0.4rem;
   font-size: 0.9em;
 }
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  font-size: 1.35em;   /* Bigger icon size */
+  line-height: 1;
+}
 
 /* ===========================
    NAVIGATION
@@ -326,12 +333,11 @@ button:focus-visible {
 }
 
 .hero-highlights {
-  list-style: none;
-  padding-left: 0;
-  margin: 0 0 1.1rem;
+  list-style: disc;
+  padding-left: 1.25rem;      /* indent bullets nicely */
+  margin: 0 0 1.6rem;
   font-size: 0.9rem;
   color: var(--text-main);
-  max-width: 60ch;
 }
 
 .hero-highlights li + li {
@@ -339,11 +345,12 @@ button:focus-visible {
 }
 
 .hero-tags {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   font-size: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.85rem;
+  justify-content: flex-end;   /* sit under the photo, pushed right */
 }
 
 /* Bullet-style summary under the name */
@@ -358,6 +365,15 @@ button:focus-visible {
 .hero-subtitle-list li + li {
   margin-top: 0.35rem;
 }
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  margin-top: 0.85rem;
+  justify-content: flex-end;   /* line them up under the right edge of the photo */
+}
+
 .hero-tags span {
   padding: 0.25rem 0.6rem;
   border-radius: var(--radius-pill);
@@ -366,6 +382,7 @@ button:focus-visible {
   color: var(--text-soft);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
 }
 
 .hero-ctas {
@@ -377,15 +394,15 @@ button:focus-visible {
 /* HERO PHOTO WRAPPER WITH BIG WHITE SQUARE OFFSET LEFT */
 .hero-photo-wrap {
   position: relative;
-  width: 480px;
-  height: 480px;
+  width: 380px;
+  height: 380px;
 }
 
 /* Big white square behind the photo, shifted left */
 .hero-photo-bg {
   position: absolute;
   top: -24px;
-  left: -38px;          /* pushes the white square to the left */
+  left: -32px;          /* pushes the white square to the left */
   width: 100%;
   height: 100%;
   border-radius: 24px;
@@ -764,10 +781,11 @@ button:focus-visible {
   }
 
   .hero-image {
-    align-self: flex-start;
-    margin-top: -1.5rem; /* slight lift for the photo */
-    align-items: flex-end;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  /* photo + tags align to the right */
+  gap: 0.75rem;
+}
 
   .skills-grid,
   .coursework-grid {
