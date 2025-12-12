@@ -828,7 +828,34 @@ button:focus-visible {
    so desktop stays exactly the same.
    ------------ */
 @media (max-width: 799px) {
-  /* MOBILE NAV BEHAVIOR */
+/* Reorder hero for mobile:
+   Put the image ABOVE the text but BELOW the name */
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Photo comes first */
+.hero-image {
+  order: 1;
+  margin-bottom: 1.5rem;
+}
+
+/* Intro text comes after */
+.hero-text {
+  order: 2;
+}
+
+/* Photo comes first */
+.hero-image {
+  order: 1;
+  margin-bottom: 1.5rem;
+}
+
+/* Intro text comes after */
+.hero-text {
+  order: 2;
+}/* MOBILE NAV BEHAVIOR */
   .nav-links {
     position: absolute;
     inset: 4.25rem 1.5rem auto 1.5rem;
