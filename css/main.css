@@ -831,35 +831,54 @@ button:focus-visible {
 /* MOBILE (≤799px)
    Clean, corrected mobile layout
    ------------ */
+/* ------------ */
+/* MOBILE (≤799px)
+   Final version: 
+   1. Name + label
+   2. Photo
+   3. Buttons
+   4. Description + bullets
+   ------------ */
 @media (max-width: 799px) {
 
-  /* STACK HERO IN CUSTOM ORDER:
-     1. Photo
-     2. Buttons
-     3. Text content
-  */
-
+  /* Stack everything vertically */
   .hero-grid {
     display: flex !important;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.75rem;
   }
 
-  /* 1 — Photo FIRST */
-  .hero-image {
+  /* 1 — Keep NAME + LABEL first (default) */
+  .hero-label {
     order: 1 !important;
+  }
+
+  .hero-title {
+    order: 1 !important;
+  }
+
+  /* 4 — Description last (this whole block) */
+  .hero-text {
+    order: 4 !important;
+    max-width: 40rem;
+  }
+
+  /* 2 — Photo comes SECOND */
+  .hero-image {
+    order: 2 !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 0.5rem;
   }
 
-  /* 2 — CTAs SECOND */
+  /* 3 — Buttons THIRD */
   .hero-ctas {
-    order: 2 !important;
+    order: 3 !important;
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+    gap: 0.75rem;
   }
 
   .hero-ctas .btn {
@@ -867,14 +886,7 @@ button:focus-visible {
     justify-content: center;
   }
 
-  /* 3 — Text THIRD */
-  .hero-text {
-    order: 3 !important;
-    max-width: 40rem;
-  }
-
-
-  /* MOBILE NAV BEHAVIOR */
+  /* Mobile nav behavior */
   .nav-links {
     position: absolute;
     inset: 4.25rem 1.5rem auto 1.5rem;
@@ -894,34 +906,22 @@ button:focus-visible {
   .nav.open .nav-toggle-bar:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
   }
-
   .nav.open .nav-toggle-bar:nth-child(2) {
     opacity: 0;
   }
-
   .nav.open .nav-toggle-bar:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
 
-  /* HERO SPACING */
+  /* Hero spacing */
   .hero {
     padding-top: 4.5rem;
   }
 
-  .hero-title {
-    font-size: 2.25rem;
-  }
-
-  /* Container padding */
-  .container {
-    padding: 0 1.25rem;
-  }
-
-  /* Image size adjustments */
+  /* Mobile photo size */
   .hero-photo-wrap {
     width: 280px;
     height: 320px;
-    margin: 0 auto;
   }
 
   .hero-photo-bg {
@@ -929,18 +929,15 @@ button:focus-visible {
     left: -20px;
   }
 
+  /* Center hashtags */
   .hero-tags {
     margin-top: 0.75rem;
     justify-content: center;
   }
 
-  /* Section spacing */
+  /* Tighten section spacing */
   .section {
     padding: 3.5rem 0 3rem;
-  }
-
-  .section-leadership {
-    padding-top: 4rem;
   }
 
   /* Card spacing */
@@ -948,16 +945,7 @@ button:focus-visible {
     padding: 1.3rem 1.35rem;
   }
 
-  .snapshot-grid,
-  .experience-list,
-  .projects-grid,
-  .skills-grid,
-  .coursework-grid,
-  .leadership-list {
-    gap: 1.25rem;
-  }
-
-  /* Contact buttons full width */
+  /* Contact CTAs full width */
   .contact-ctas {
     flex-direction: column;
     align-items: stretch;
@@ -965,7 +953,6 @@ button:focus-visible {
 
   .contact-ctas .btn {
     width: 100%;
-    justify-content: center;
   }
 }
 
