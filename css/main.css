@@ -827,35 +827,54 @@ button:focus-visible {
    All changes here are phone / small tablet only,
    so desktop stays exactly the same.
    ------------ */
+/* ------------ */
+/* MOBILE (≤799px)
+   Clean, corrected mobile layout
+   ------------ */
 @media (max-width: 799px) {
-/* Reorder hero for mobile:
-   Put the image ABOVE the text but BELOW the name */
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-}
 
-/* Photo comes first */
-.hero-image {
-  order: 1;
-  margin-bottom: 1.5rem;
-}
+  /* STACK HERO IN CUSTOM ORDER:
+     1. Photo
+     2. Buttons
+     3. Text content
+  */
 
-/* Intro text comes after */
-.hero-text {
-  order: 2;
-}
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-/* Photo comes first */
-.hero-image {
-  order: 1;
-  margin-bottom: 1.5rem;
-}
+  /* 1 — Photo FIRST */
+  .hero-image {
+    order: 1 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
 
-/* Intro text comes after */
-.hero-text {
-  order: 2;
-}/* MOBILE NAV BEHAVIOR */
+  /* 2 — CTAs SECOND */
+  .hero-ctas {
+    order: 2 !important;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 3 — Text THIRD */
+  .hero-text {
+    order: 3 !important;
+    max-width: 40rem;
+  }
+
+
+  /* MOBILE NAV BEHAVIOR */
   .nav-links {
     position: absolute;
     inset: 4.25rem 1.5rem auto 1.5rem;
@@ -884,6 +903,7 @@ button:focus-visible {
     transform: translateY(-6px) rotate(-45deg);
   }
 
+  /* HERO SPACING */
   .hero {
     padding-top: 4.5rem;
   }
@@ -892,39 +912,12 @@ button:focus-visible {
     font-size: 2.25rem;
   }
 
-  /* container a bit tighter on phones */
+  /* Container padding */
   .container {
     padding: 0 1.25rem;
   }
 
-  /* hero layout stacked, with nicer spacing */
-  .hero-grid {
-    gap: 2rem;
-  }
-
-  .hero-text {
-    max-width: 40rem;
-  }
-
-  /* stack CTAs and make them full width for easy tapping */
-  .hero-ctas {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-ctas .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* mobile image sizing */
-  .hero-image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0.5rem;
-  }
-
+  /* Image size adjustments */
   .hero-photo-wrap {
     width: 280px;
     height: 320px;
@@ -938,9 +931,10 @@ button:focus-visible {
 
   .hero-tags {
     margin-top: 0.75rem;
+    justify-content: center;
   }
 
-  /* section spacing slightly tighter for scroll */
+  /* Section spacing */
   .section {
     padding: 3.5rem 0 3rem;
   }
@@ -949,7 +943,7 @@ button:focus-visible {
     padding-top: 4rem;
   }
 
-  /* cards + grids tighter on mobile */
+  /* Card spacing */
   .card {
     padding: 1.3rem 1.35rem;
   }
@@ -963,7 +957,7 @@ button:focus-visible {
     gap: 1.25rem;
   }
 
-  /* contact buttons stack nicely too */
+  /* Contact buttons full width */
   .contact-ctas {
     flex-direction: column;
     align-items: stretch;
