@@ -824,39 +824,10 @@ button:focus-visible {
 
 /* ------------ */
 /* MOBILE (≤799px)
-   1. Name/label
-   2. Photo + hashtags
-   3. Text + buttons
+   All changes here are phone / small tablet only,
+   so desktop stays exactly the same.
    ------------ */
 @media (max-width: 799px) {
-
-  /* HERO ORDER FOR MOBILE */
-  .hero-grid {
-    display: flex !important;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  /* 1 — Name + label first */
-  .hero-header {
-    order: 1;
-  }
-
-  /* 2 — Photo second */
-  .hero-image {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0.25rem;
-  }
-
-  /* 3 — All highlights + buttons after */
-  .hero-text {
-    order: 3;
-    max-width: 40rem;
-  }
-
   /* MOBILE NAV BEHAVIOR */
   .nav-links {
     position: absolute;
@@ -886,7 +857,6 @@ button:focus-visible {
     transform: translateY(-6px) rotate(-45deg);
   }
 
-  /* HERO SPACING ON MOBILE */
   .hero {
     padding-top: 4.5rem;
   }
@@ -895,11 +865,39 @@ button:focus-visible {
     font-size: 2.25rem;
   }
 
+  /* container a bit tighter on phones */
   .container {
     padding: 0 1.25rem;
   }
 
-  /* Image sizing */
+  /* hero layout stacked, with nicer spacing */
+  .hero-grid {
+    gap: 2rem;
+  }
+
+  .hero-text {
+    max-width: 40rem;
+  }
+
+  /* stack CTAs and make them full width for easy tapping */
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* mobile image sizing */
+  .hero-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
   .hero-photo-wrap {
     width: 280px;
     height: 320px;
@@ -913,22 +911,9 @@ button:focus-visible {
 
   .hero-tags {
     margin-top: 0.75rem;
-    justify-content: center;
   }
 
-  /* Buttons full width on mobile */
-  .hero-ctas {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
-  }
-
-  .hero-ctas .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Section/card spacing */
+  /* section spacing slightly tighter for scroll */
   .section {
     padding: 3.5rem 0 3rem;
   }
@@ -937,6 +922,7 @@ button:focus-visible {
     padding-top: 4rem;
   }
 
+  /* cards + grids tighter on mobile */
   .card {
     padding: 1.3rem 1.35rem;
   }
@@ -950,7 +936,7 @@ button:focus-visible {
     gap: 1.25rem;
   }
 
-  /* Contact buttons full width */
+  /* contact buttons stack nicely too */
   .contact-ctas {
     flex-direction: column;
     align-items: stretch;
