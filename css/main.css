@@ -808,7 +808,7 @@ button:focus-visible {
     align-items: center;
   }
 
-  /* image column with photo + tags stacked */
+  /* image column with photo + tags stacked on desktop/tablet */
   .hero-image {
     display: flex;
     flex-direction: column;
@@ -822,6 +822,11 @@ button:focus-visible {
   }
 }
 
+/* ------------ */
+/* MOBILE (≤799px)
+   All changes here are phone / small tablet only,
+   so desktop stays exactly the same.
+   ------------ */
 @media (max-width: 799px) {
   /* MOBILE NAV BEHAVIOR */
   .nav-links {
@@ -860,8 +865,87 @@ button:focus-visible {
     font-size: 2.25rem;
   }
 
-  /* on mobile, tags will naturally sit below content;
-     no special positioning needed */
+  /* container a bit tighter on phones */
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  /* hero layout stacked, with nicer spacing */
+  .hero-grid {
+    gap: 2rem;
+  }
+
+  .hero-text {
+    max-width: 40rem;
+  }
+
+  /* stack CTAs and make them full width for easy tapping */
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* mobile image sizing */
+  .hero-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .hero-photo-wrap {
+    width: 280px;
+    height: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-photo-bg {
+    top: -20px;
+    left: -20px;
+  }
+
+  .hero-tags {
+    margin-top: 0.75rem;
+  }
+
+  /* section spacing slightly tighter for scroll */
+  .section {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .section-leadership {
+    padding-top: 4rem;
+  }
+
+  /* cards + grids tighter on mobile */
+  .card {
+    padding: 1.3rem 1.35rem;
+  }
+
+  .snapshot-grid,
+  .experience-list,
+  .projects-grid,
+  .skills-grid,
+  .coursework-grid,
+  .leadership-list {
+    gap: 1.25rem;
+  }
+
+  /* contact buttons stack nicely too */
+  .contact-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 800px) {
@@ -871,5 +955,48 @@ button:focus-visible {
     box-shadow: none;
     padding: 0;
     border-radius: 0;
+  }
+}
+
+/* Extra-small screens (≤480px):
+   keep everything legible and centered without feeling cramped. */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-label {
+    font-size: 0.72rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  /* slightly smaller image so it never feels jammed */
+  .hero-photo-wrap {
+    width: 240px;
+    height: 280px;
+  }
+
+  .hero-photo-bg {
+    top: -16px;
+    left: -16px;
+  }
+
+  /* full-width buttons everywhere on very small phones */
+  .btn {
+    padding: 0.75rem 1.2rem;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-ctas,
+  .contact-ctas {
+    gap: 0.5rem;
   }
 }
