@@ -337,13 +337,9 @@ button:focus-visible {
   margin-bottom: 1.25rem;
 }
 
-/* HERO HIGHLIGHTS
-   First two items styled as normal paragraph text,
-   remaining items retain bullet-style look.
-*/
-
+/* HERO HIGHLIGHTS */
 .hero-highlights {
-  list-style: none;             /* remove default bullets */
+  list-style: none;
   padding-left: 0;
   margin: 0 0 1.6rem;
   font-size: 0.94rem;
@@ -355,7 +351,7 @@ button:focus-visible {
   margin-bottom: 0.4rem;
 }
 
-/* First two "bullets" → paragraph style (no bullet, softer color) */
+/* First two → paragraph style */
 .hero-highlights li:nth-child(-n + 2) {
   padding-left: 0;
   color: var(--text-muted);
@@ -379,19 +375,6 @@ button:focus-visible {
   color: var(--text-main);
 }
 
-/* Bullet-style summary under the name (if used elsewhere) */
-.hero-subtitle-list {
-  margin: 0 0 1.25rem;
-  padding-left: 1.1rem;
-  font-size: 0.98rem;
-  color: var(--text-muted);
-  max-width: 60ch;
-}
-
-.hero-subtitle-list li + li {
-  margin-top: 0.35rem;
-}
-
 /* TAGS – under the photo, black text */
 .hero-tags {
   display: flex;
@@ -399,7 +382,7 @@ button:focus-visible {
   gap: 0.4rem;
   font-size: 0.75rem;
   margin-top: 0.85rem;
-  justify-content: center;  /* center under the image */
+  justify-content: center;
 }
 
 .hero-tags span {
@@ -407,30 +390,29 @@ button:focus-visible {
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-soft);
   background-color: #ffffff;
-  color: var(--text-main);  /* make tags black */
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
-/* CTAs row under intro text */
+/* CTAs row */
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
 
-/* HERO PHOTO WRAPPER WITH BIG WHITE SQUARE OFFSET LEFT */
+/* HERO PHOTO WRAPPER */
 .hero-photo-wrap {
   position: relative;
   width: 380px;
   height: 380px;
 }
 
-/* Big white square behind the photo, shifted left */
 .hero-photo-bg {
   position: absolute;
   top: -24px;
-  left: -32px;          /* pushes the white square to the left */
+  left: -32px;
   width: 100%;
   height: 100%;
   border-radius: 24px;
@@ -439,7 +421,6 @@ button:focus-visible {
   z-index: 0;
 }
 
-/* Actual photo on top */
 .hero-photo {
   position: relative;
   width: 100%;
@@ -458,7 +439,7 @@ button:focus-visible {
 .snapshot-grid {
   margin-top: 1.75rem;
   display: grid;
-  gap: 1.5rem; /* 24px gap between cards */
+  gap: 1.5rem;
 }
 
 .snapshot-card {
@@ -586,22 +567,6 @@ button:focus-visible {
   margin-top: 0.3rem;
 }
 
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  font-size: 0.85rem;
-}
-
-.project-links a {
-  color: var(--accent-soft);
-  border-bottom: 1px solid transparent;
-}
-
-.project-links a:hover {
-  border-bottom-color: var(--accent-soft);
-}
-
 /* ===========================
    SKILLS
    =========================== */
@@ -663,6 +628,18 @@ button:focus-visible {
   font-size: 0.85rem;
   color: var(--text-soft);
   margin-top: 0.5rem;
+}
+
+/* Ensure interest list matches your clean style */
+.interest-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.interest-list li + li {
+  margin-top: 0.25rem;
 }
 
 /* ===========================
@@ -808,7 +785,6 @@ button:focus-visible {
     align-items: center;
   }
 
-  /* image column with photo + tags stacked on desktop/tablet */
   .hero-image {
     display: flex;
     flex-direction: column;
@@ -822,13 +798,8 @@ button:focus-visible {
   }
 }
 
-/* ------------ */
-/* MOBILE (≤799px)
-   All changes here are phone / small tablet only,
-   so desktop stays exactly the same.
-   ------------ */
+/* MOBILE (≤799px) */
 @media (max-width: 799px) {
-  /* MOBILE NAV BEHAVIOR */
   .nav-links {
     position: absolute;
     inset: 4.25rem 1.5rem auto 1.5rem;
@@ -865,12 +836,10 @@ button:focus-visible {
     font-size: 2.25rem;
   }
 
-  /* container a bit tighter on phones */
   .container {
     padding: 0 1.25rem;
   }
 
-  /* hero layout stacked, with nicer spacing */
   .hero-grid {
     gap: 2rem;
   }
@@ -879,7 +848,6 @@ button:focus-visible {
     max-width: 40rem;
   }
 
-  /* stack CTAs and make them full width for easy tapping */
   .hero-ctas {
     flex-direction: column;
     align-items: stretch;
@@ -890,7 +858,6 @@ button:focus-visible {
     justify-content: center;
   }
 
-  /* mobile image sizing */
   .hero-image {
     display: flex;
     flex-direction: column;
@@ -913,7 +880,6 @@ button:focus-visible {
     margin-top: 0.75rem;
   }
 
-  /* section spacing slightly tighter for scroll */
   .section {
     padding: 3.5rem 0 3rem;
   }
@@ -922,7 +888,6 @@ button:focus-visible {
     padding-top: 4rem;
   }
 
-  /* cards + grids tighter on mobile */
   .card {
     padding: 1.3rem 1.35rem;
   }
@@ -936,7 +901,6 @@ button:focus-visible {
     gap: 1.25rem;
   }
 
-  /* contact buttons stack nicely too */
   .contact-ctas {
     flex-direction: column;
     align-items: stretch;
@@ -958,8 +922,6 @@ button:focus-visible {
   }
 }
 
-/* Extra-small screens (≤480px):
-   keep everything legible and centered without feeling cramped. */
 @media (max-width: 480px) {
   body {
     font-size: 15px;
@@ -977,7 +939,6 @@ button:focus-visible {
     font-size: 1.7rem;
   }
 
-  /* slightly smaller image so it never feels jammed */
   .hero-photo-wrap {
     width: 240px;
     height: 280px;
@@ -988,7 +949,6 @@ button:focus-visible {
     left: -16px;
   }
 
-  /* full-width buttons everywhere on very small phones */
   .btn {
     padding: 0.75rem 1.2rem;
     min-width: 0;
