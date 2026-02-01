@@ -437,6 +437,25 @@ button:focus-visible {
   z-index: 1;
 }
 
+/* ==========================================================
+   HERO IMAGE DUPLICATION CONTROL (matches updated HTML)
+   Desktop: show desktop version (right column)
+   Mobile: show mobile version (inside hero-text under name)
+   ========================================================== */
+
+/* Default (desktop-first): show desktop hero image, hide mobile hero image */
+.hero-image-mobile {
+  display: none;
+}
+
+/* Keep your existing hero-image styling for desktop layout */
+.hero-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 /* ===========================
    SNAPSHOT
    =========================== */
@@ -790,6 +809,7 @@ button:focus-visible {
     align-items: center;
   }
 
+  /* Keep the desktop right-column hero image styling */
   .hero-image {
     display: flex;
     flex-direction: column;
@@ -845,53 +865,17 @@ button:focus-visible {
     padding: 0 1.25rem;
   }
 
-  /* ============================================
-     MOBILE HERO ORDER FIX (ONLY MOBILE CHANGES)
-     Goal: photo + hashtags directly under the name
-     Desktop stays exactly the same.
-     ============================================ */
-
-  /* Convert the hero grid to a column flex layout on mobile
-     so we can control ordering cleanly without touching desktop. */
   .hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* We'll control spacing via margins below */
+    gap: 2rem;
   }
 
-  /* Keep text first, but remove the implicit gap so the image can sit
-     right under the name instead of later on the page. */
   .hero-text {
     max-width: 40rem;
-    order: 1;
   }
 
-  /* Move the entire image block (photo + tags) to immediately follow the name.
-     We do this by positioning it with a negative top margin relative to the
-     space that would otherwise be occupied by bullets/CTAs. */
-  .hero-image {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* This margin controls where the photo lands relative to the text block. */
-    margin-top: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Now push the remaining content (highlights + CTAs) after the image.
-     Because we can't reorder children inside .hero-text without touching HTML,
-     we add spacing so the natural flow stays clean and readable. */
-  .hero-highlights {
-    margin-top: 0; /* unchanged look */
-  }
-
-  /* CTAs stacked nicely, unchanged styling */
   .hero-ctas {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.75rem;
-    margin-top: 1.25rem;
   }
 
   .hero-ctas .btn {
@@ -899,6 +883,27 @@ button:focus-visible {
     justify-content: center;
   }
 
+  /* ============================================
+     MOBILE HERO VISIBILITY (matches updated HTML)
+     Goal: show the "mobile" hero image under the name,
+           hide the "desktop" right-column hero image.
+     ============================================ */
+
+  /* Hide the desktop/right-column version on mobile */
+  .hero-image-desktop {
+    display: none !important;
+  }
+
+  /* Show the mobile/inline version on mobile */
+  .hero-image-mobile {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.85rem;   /* space under name */
+    margin-bottom: 1.25rem; /* space before highlights */
+  }
+
+  /* Keep your photo sizing exactly as you already had on mobile */
   .hero-photo-wrap {
     width: 280px;
     height: 320px;
@@ -910,7 +915,7 @@ button:focus-visible {
     left: -20px;
   }
 
-  /* Keep hashtags spacing/feel exactly as-is — only positioning is changing */
+  /* Hashtags: DO NOT tighten. Only keep the positioning natural. */
   .hero-tags {
     margin-top: 0.75rem;
   }
@@ -954,6 +959,16 @@ button:focus-visible {
     box-shadow: none;
     padding: 0;
     border-radius: 0;
+  }
+
+  /* Desktop-only: ensure desktop hero image is visible,
+     and the mobile inline one is hidden. */
+  .hero-image-desktop {
+    display: flex;
+  }
+
+  .hero-image-mobile {
+    display: none;
   }
 }
 
