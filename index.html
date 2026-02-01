@@ -75,13 +75,14 @@
 
           <h1 class="hero-title">Zachary Edelstein</h1>
 
-          <!-- ✅ MOBILE VERSION: PHOTO + TAGS directly under name -->
-          <div class="hero-image hero-image-mobile">
+          <!-- ✅ MOBILE VERSION ONLY (CSS controls visibility):
+               This stays for phone exactly as-is, but will be hidden on desktop. -->
+          <div class="hero-image hero-image-mobile" aria-hidden="true">
             <div class="hero-photo-wrap">
               <div class="hero-photo-bg"></div>
               <img
                 src="assets/IMG_6516.JPG"
-                alt="Zachary Edelstein Headshot"
+                alt=""
                 class="hero-photo"
               />
             </div>
@@ -139,8 +140,9 @@
           </div>
         </div>
 
-        <!-- ✅ DESKTOP VERSION: PHOTO + TAGS stays on the right -->
-        <div class="hero-image hero-image-desktop">
+        <!-- ✅ DESKTOP VERSION ONLY (CSS controls visibility):
+             This is the ONLY one that should appear on desktop (right column). -->
+        <div class="hero-image hero-image-desktop" aria-hidden="false">
           <div class="hero-photo-wrap">
             <div class="hero-photo-bg"></div>
             <img
