@@ -27,7 +27,10 @@
 *::after {
   box-sizing: border-box;
 }
-
+/* Emphasize Academic Projects in nav */
+.nav-emphasis {
+  font-weight: 600;
+}
 html {
   scroll-behavior: smooth;
 }
