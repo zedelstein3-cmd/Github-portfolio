@@ -76,7 +76,8 @@
           <h1 class="hero-title">Zachary Edelstein</h1>
 
           <!-- ✅ MOBILE VERSION ONLY (CSS controls visibility):
-               This stays for phone exactly as-is, but will be hidden on desktop. -->
+               Photo + tags + (NEW) mobile CTAs directly under tags on phone.
+               Hidden on desktop. -->
           <div class="hero-image hero-image-mobile" aria-hidden="true">
             <div class="hero-photo-wrap">
               <div class="hero-photo-bg"></div>
@@ -91,6 +92,29 @@
               <span>#InvestmentBanking</span>
               <span>#CorporateFinanceHonors</span>
               <span>#McCombs</span>
+            </div>
+
+            <!-- ✅ NEW: MOBILE-ONLY BUTTONS (CSS will show on mobile, hide on desktop) -->
+            <div class="hero-ctas hero-ctas-mobile" aria-hidden="true">
+              <a
+                href="assets/RESUME 2026.pdf"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="btn-icon" aria-hidden="true">⤓</span>
+                Download Resume
+              </a>
+
+              <a href="mailto:zedelstein3@gmail.com" class="btn btn-secondary">
+                <span class="btn-icon" aria-hidden="true">✉</span>
+                Email Me
+              </a>
+
+              <a href="sms:9563124280" class="btn btn-secondary">
+                <span class="btn-icon" aria-hidden="true">💬</span>
+                Text/Call Zach
+              </a>
             </div>
           </div>
 
@@ -117,7 +141,8 @@
             </li>
           </ul>
 
-          <div class="hero-ctas">
+          <!-- ✅ DESKTOP CTAs (CSS will hide this block on mobile; desktop unchanged) -->
+          <div class="hero-ctas hero-ctas-desktop">
             <a
               href="assets/RESUME 2026.pdf"
               class="btn btn-primary"
@@ -141,7 +166,7 @@
         </div>
 
         <!-- ✅ DESKTOP VERSION ONLY (CSS controls visibility):
-             This is the ONLY one that should appear on desktop (right column). -->
+             This is the ONLY hero image that should appear on desktop (right column). -->
         <div class="hero-image hero-image-desktop" aria-hidden="false">
           <div class="hero-photo-wrap">
             <div class="hero-photo-bg"></div>
