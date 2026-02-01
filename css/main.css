@@ -293,8 +293,8 @@ button:focus-visible {
 }
 
 .nav-toggle-bar {
-  width  : 20px;
-  height : 2px;
+  width: 20px;
+  height: 2px;
   background-color: var(--text-main);
   display: block;
   margin: 4px 0;
@@ -856,8 +856,15 @@ button:focus-visible {
     padding-top: 4.5rem;
   }
 
+  /* ✅ CHANGE #1 (MOBILE ONLY): center the name */
   .hero-title {
     font-size: 2.25rem;
+    text-align: center;
+  }
+
+  /* Optional (helps the “slide” feel match your screenshot) */
+  .hero-label {
+    text-align: center;
   }
 
   .container {
@@ -872,12 +879,23 @@ button:focus-visible {
     max-width: 40rem;
   }
 
-  .hero-ctas {
-    flex-direction: column;
-    align-items: stretch;
+  /* ✅ CHANGE #2 (MOBILE ONLY): desktop CTA block should NOT show on mobile */
+  .hero-ctas-desktop {
+    display: none !important;
   }
 
-  .hero-ctas .btn {
+  /* ✅ CHANGE #3 (MOBILE ONLY): mobile CTA block becomes a stacked group under tags */
+  .hero-ctas-mobile {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 520px;
+    margin-top: 0.85rem;     /* space under hashtags before buttons */
+    gap: 0.6rem;
+  }
+
+  .hero-ctas-mobile .btn {
     width: 100%;
     justify-content: center;
   }
@@ -892,8 +910,11 @@ button:focus-visible {
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    margin-top: 0.85rem;     /* space under name */
+
+    /* ✅ CHANGE #4 (MOBILE ONLY): more space between name and photo */
+    margin-top: 1.35rem;     /* increased from 0.85rem */
     margin-bottom: 1.25rem;  /* space before highlights */
+    width: 100%;
   }
 
   /* Keep your photo sizing exactly as you already had on mobile */
@@ -960,6 +981,11 @@ button:focus-visible {
   }
 
   .hero-image.hero-image-mobile {
+    display: none;
+  }
+
+  /* Desktop-only: keep mobile CTA hidden even if HTML exists */
+  .hero-ctas-mobile {
     display: none;
   }
 }
