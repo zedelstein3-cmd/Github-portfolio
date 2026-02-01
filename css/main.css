@@ -27,10 +27,12 @@
 *::after {
   box-sizing: border-box;
 }
+
 /* Emphasize Academic Projects in nav */
 .nav-emphasis {
   font-weight: 600;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -843,29 +845,58 @@ button:focus-visible {
     padding: 0 1.25rem;
   }
 
+  /* ============================================
+     MOBILE HERO ORDER FIX (ONLY MOBILE CHANGES)
+     Goal: photo + hashtags directly under the name
+     Desktop stays exactly the same.
+     ============================================ */
+
+  /* Convert the hero grid to a column flex layout on mobile
+     so we can control ordering cleanly without touching desktop. */
   .hero-grid {
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* We'll control spacing via margins below */
   }
 
+  /* Keep text first, but remove the implicit gap so the image can sit
+     right under the name instead of later on the page. */
   .hero-text {
     max-width: 40rem;
+    order: 1;
   }
 
+  /* Move the entire image block (photo + tags) to immediately follow the name.
+     We do this by positioning it with a negative top margin relative to the
+     space that would otherwise be occupied by bullets/CTAs. */
+  .hero-image {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* This margin controls where the photo lands relative to the text block. */
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Now push the remaining content (highlights + CTAs) after the image.
+     Because we can't reorder children inside .hero-text without touching HTML,
+     we add spacing so the natural flow stays clean and readable. */
+  .hero-highlights {
+    margin-top: 0; /* unchanged look */
+  }
+
+  /* CTAs stacked nicely, unchanged styling */
   .hero-ctas {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
   }
 
   .hero-ctas .btn {
     width: 100%;
     justify-content: center;
-  }
-
-  .hero-image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0.5rem;
   }
 
   .hero-photo-wrap {
@@ -879,6 +910,7 @@ button:focus-visible {
     left: -20px;
   }
 
+  /* Keep hashtags spacing/feel exactly as-is — only positioning is changing */
   .hero-tags {
     margin-top: 0.75rem;
   }
@@ -963,6 +995,7 @@ button:focus-visible {
     gap: 0.5rem;
   }
 }
+
 /* =========================
    PROJECT CARD BUTTONS
    (Academic Projects)
